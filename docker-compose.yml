@@ -1,0 +1,16 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3.8.17-management
+    ports:
+      - 5672:5672
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+
+volumes:
+  rabbitmq_data:
